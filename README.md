@@ -1,3 +1,51 @@
+# 可排序全局唯一ID生成器
+
+*forked from rs/xid v1.3.0*
+
+无需配置, 生成 20 个字符 (`[0-9a-v]{20}`), 可排序
+
+已纳入 `utils`, 见: [fufuok/utils/xid](http://github.com/fufuok/utils)
+
+## 安装
+
+```go
+go get github.com/fufuok/xid
+```
+
+## 使用
+
+```go
+s := xid.NewString()  // c235ptdaar1jskj7mt90
+b := xid.NewBytes()
+fmt.Println(s, b)
+
+for i:=0; i<100; i++{
+    fmt.Println(xid.NewString())
+}
+```
+
+## 性能
+
+```
+BenchmarkUniqueUUID-8         	 1516308	      2409 ns/op	      16 B/op	       1 allocs/op
+BenchmarkUniqueUUID-8         	 1428595	      3121 ns/op	      16 B/op	       1 allocs/op
+BenchmarkUniqueUUID-8         	 1454421	      2641 ns/op	      16 B/op	       1 allocs/op
+BenchmarkUniqueUUIDString-8   	 1320424	      2716 ns/op	      64 B/op	       2 allocs/op
+BenchmarkUniqueUUIDString-8   	 1400548	      2770 ns/op	      64 B/op	       2 allocs/op
+BenchmarkUniqueUUIDString-8   	 1000000	      3083 ns/op	      64 B/op	       2 allocs/op
+BenchmarkUniqueUUIDSimple-8   	 1000000	      3235 ns/op	      80 B/op	       3 allocs/op
+BenchmarkUniqueUUIDSimple-8   	 1202796	      2658 ns/op	      80 B/op	       3 allocs/op
+BenchmarkUniqueUUIDSimple-8   	 1317488	      2608 ns/op	      80 B/op	       3 allocs/op
+BenchmarkUniqueXID-8          	 2616777	      1411 ns/op	       0 B/op	       0 allocs/op
+BenchmarkUniqueXID-8          	 2530496	      1378 ns/op	       0 B/op	       0 allocs/op
+BenchmarkUniqueXID-8          	 2729223	      1389 ns/op	       0 B/op	       0 allocs/op
+BenchmarkUniqueXIDString-8    	 2332801	      1525 ns/op	      32 B/op	       1 allocs/op
+BenchmarkUniqueXIDString-8    	 2385540	      1611 ns/op	      32 B/op	       1 allocs/op
+BenchmarkUniqueXIDString-8    	 2197720	      1516 ns/op	      32 B/op	       1 allocs/op
+```
+
+xid vs UUIDv4
+
 # Globally Unique ID Generator
 
 [![godoc](http://img.shields.io/badge/godoc-reference-blue.svg?style=flat)](https://godoc.org/github.com/rs/xid) [![license](http://img.shields.io/badge/license-MIT-red.svg?style=flat)](https://raw.githubusercontent.com/rs/xid/master/LICENSE) [![Build Status](https://travis-ci.org/rs/xid.svg?branch=master)](https://travis-ci.org/rs/xid) [![Coverage](http://gocover.io/_badge/github.com/rs/xid)](http://gocover.io/github.com/rs/xid)
