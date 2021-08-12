@@ -1,10 +1,10 @@
-# 可排序全局唯一ID生成器
+# 可排序全局唯一 ID 生成器
 
-*forked from rs/xid v1.3.0*
+*forked from rs/xid v20210503*
 
-无需配置, 生成 20 个字符 (`[0-9a-v]{20}`), 可排序
+比 UUID 更快, 更短, 无需配置, 生成 20 个字符 (`[0-9a-v]{20}`), 可排序
 
-已纳入 `utils`, 见: [fufuok/utils/xid](http://github.com/fufuok/utils)
+已纳入 `utils`, 见: [github.com/fufuok/utils/xid](http://github.com/fufuok/utils)
 
 ## 安装
 
